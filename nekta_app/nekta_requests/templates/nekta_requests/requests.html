@@ -1,0 +1,23 @@
+{% extends 'nekta_requests/base.html' %}
+
+{% block title %}
+    Main page
+{% endblock %}
+
+
+{% block body %}
+    <h1>Requests:</h1>
+    {% if requests %}
+    <div>
+        {% for request in requests %}
+        <div>
+            <p>title: {{ request.title }}</p>
+            <p>description: {{ request.description }}</p>
+
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <h3>Not requests yet</h3>
+    {% endif %}
+{% endblock %}
