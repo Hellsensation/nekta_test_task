@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('requests/', include('nekta_requests.urls')),
+    path('', include('nekta_requests.urls')),
 ]

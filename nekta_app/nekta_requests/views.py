@@ -1,9 +1,26 @@
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from .models import Request
 
 
-def nekta_request(request):
+def viewing_request(request: HttpRequest):
+    """
+    Просмотр всех заявок
+    """
     context = {
         'requests': Request.objects.all(),
     }
-    return render(request, 'nekta_requests/requests.html', context=context)
+    return render(request, 'nekta_requests/viewing_requests.html', context=context)
+
+
+def add_request(request: HttpRequest) -> HttpResponse:
+    """
+    Добавление заявки
+    """
+    if request.method == 'POST':
+        req = Request()
+        req.title = request.POST.get('req_title', '')
+        req.description = request.POST.get('req_description', '')
+        req.save()
+
+    return render(request, 'nekta_requests/add_request.html')

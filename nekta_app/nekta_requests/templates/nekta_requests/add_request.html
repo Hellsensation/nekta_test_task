@@ -1,0 +1,26 @@
+{% extends 'nekta_requests/base.html' %}
+
+{% block title %}
+    Adding request
+{% endblock %}
+
+
+{% block body %}
+    <h1>Request form:</h1>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <p>
+                <label for="title-id">Request title: </label>
+                <input name="req_title" id="title-id" type="text" maxlength="100">
+            </p>
+            <p>
+                <label for="text-id">Request description</label>
+                <textarea name="req_description" id="text-id" cols="30" rows="10"></textarea>
+            </p>
+            <button type="submit">
+                Submit
+            </button>
+        </form>
+    </div>
+{% endblock %}
