@@ -45,5 +45,9 @@ def add_request(request: HttpRequest) -> HttpResponse:
     return render(request, 'nekta_requests/add_request.html')
 
 
+def something(request):
+    pass
+
+
 
 
