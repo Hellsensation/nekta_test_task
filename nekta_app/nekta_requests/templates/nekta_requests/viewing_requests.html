@@ -1,7 +1,7 @@
 {% extends 'nekta_requests/base.html' %}
 
 {% block title %}
-    Main page
+    Requests list
 {% endblock %}
 
 
@@ -13,6 +13,7 @@
         <div>
             <p>title: {{ request.title }}</p>
             <p>description: {{ request.description }}</p>
+            <p>ID: {{request.pk}} </p>
         </div>
         {% endfor %}
     </div>

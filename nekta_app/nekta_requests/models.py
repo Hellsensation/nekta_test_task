@@ -15,7 +15,7 @@ class Request(models.Model):
 class RequestMessage(models.Model):
     text = models.TextField(null=False, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    req = models.ForeignKey(Request, on_delete=models.PROTECT)
+    request = models.ForeignKey(Request, on_delete=models.PROTECT)
 
     def __str__(self):
-        return 'Request'
+        return 'Request message'

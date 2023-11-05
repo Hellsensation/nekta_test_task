@@ -1,0 +1,45 @@
+{% extends 'nekta_requests/base.html' %}
+
+{% block title %}
+    Send message
+{% endblock %}
+
+
+{% block body %}
+    <h1>Message form:</h1>
+    <div>
+    <h2>Requests:</h2>
+        {% if requests %}
+    <div>
+        {% for request in requests %}
+        <div>
+            <p>title: {{ request.title }}</p>
+            <p>ID: {{ request.pk }}</p>
+        </div>
+        {% endfor %}
+    </div>
+        {% else %}
+            <h3>Not requests yet</h3>
+        {% endif %}
+    </div>
+
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <p>
+                <label for="request_id-id">Request ID</label>
+                <input type="text" name="request-ID" id="request_id-id"  maxlength="100">
+            </p>
+            <p>
+
+                <label for="message-id">Text message: </label>
+                <textarea name="message" id="message-id" cols="30" rows="10"></textarea>
+
+            </p>
+            <button type="submit">
+                Submit message
+            </button>
+        </form>
+    </div>
+{% endblock %}
+
